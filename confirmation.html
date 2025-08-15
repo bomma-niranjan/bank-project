@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: rgb(0,29,45);
+            background: linear-gradient(133deg, rgba(0,29,45,1) 0%, rgba(20,51,72,1) 99%);
+
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="card-title text-success">Appointment Confirmed!</h2>
+                <p class="card-text" id="confirmationDetails"></p>
+                <a href="index1.html" class="btn btn-primary mt-3">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve query parameters
+        const params = new URLSearchParams(window.location.search);
+        const date = params.get('date');
+        const time = params.get('time');
+        const issue = params.get('issue');
+
+        // Display confirmation details
+        document.getElementById('confirmationDetails').innerText = 
+            `Your appointment for "${issue}" on ${date} at ${time} has been successfully scheduled.`;
+    </script>
+</body>
+
+</html>

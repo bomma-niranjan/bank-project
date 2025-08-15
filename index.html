@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(0,29,45);
+background: linear-gradient(133deg, rgba(0,29,45,1) 0%, rgba(42,88,116,1) 57%, rgba(13,44,63,1) 66%, rgba(14,46,66,1) 75%, rgba(15,47,67,1) 79%, rgba(17,49,69,1) 87%, rgba(19,51,72,0.6195728291316527) 99%);
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 5%;
+            padding: 40px 20px 40px 20px; /* Added padding to the container */
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            text-align: center;
+            color: black;
+        }
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .bank {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .bank:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .bank img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .bank span {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .bank span::after {
+            content: 'Click to visit';
+            display: none;
+            font-size: 12px;
+            color: #777;
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .bank:hover span::after {
+            display: block;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+        <h1>Select Your Bank 🏦</h1>
+        <!-- Search Bar -->
+         
+        <input
+            type="text"
+            id="searchBar"
+            class="search-bar"
+            placeholder="Search for your bank..."
+            onkeyup="filterBanks()"
+        />
+
+        
+        <div class="bank-grid">
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./download (1).png" alt="Andhra Bank Logo">
+                <span>Andhra Bank</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./axis.png" alt="Axis Bank Logo">
+                <span>Axis Bank</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./bankofboroda.png" alt=" Bank of Baroda Logo">
+                <span>Bank of Baroad</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./bankofi.jpeg" alt="State Bank of India Logo">
+                <span> State Bank Of India</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./bandan.png" alt="Bandhan Bank Logo">
+                <span>Bandhan Bank</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./canara.jpeg" alt="Canara Bank Logo">
+                <span>Canara Bank</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./hdfc.png" alt="HDFC Bank Logo">
+                <span>HDFC Bank</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./iccic.png" alt="ICICI Bank Logo">
+                <span>ICICI Bank</span>
+            </div>
+            <div class="bank" onclick="navigateTo('index1.htm1')">
+                <img src="./indian.png" alt="Indian Bank Logo">
+                <span>Indian Bank</span>
+            </div>
+          
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./download.png" alt="State Bank of India Logo">
+                <span>State Bank of India</span>
+            </div>
+
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./union.png" alt="Union Bank of India Logo">
+                <span>Union Bank of India</span>
+            </div>
+            
+            
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./yes.png" alt="Yes Bank Logo">
+                <span>Yes Bank</span>
+            </div>
+
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./punjab.jpeg" alt="Punjab National Bank Logo">
+                <span>punjab National Bank</span>
+            </div>
+           
+            <div class="bank" onclick="navigateTo('index1.html')">
+                <img src="./kotak.png" alt="Kotak Mahindra Bank Logo">
+                <span>Kotak Mahindra Bank</span>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(url) {
+            if (url) {
+                window.location.href = url;
+            } else {
+                alert('This bank link is currently unavailable.');
+            }
+        }
+
+        function filterBanks() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const banks = document.querySelectorAll(".bank");
+            banks.forEach(bank => {
+                const bankName = bank.textContent.toLowerCase();
+                bank.style.display = bankName.includes(query) ? "block" : "none";
+            });
+        }
+
+        
+        document.querySelectorAll('.bank img').forEach(img => {
+            img.onerror = function () {
+                this.src = 'placeholder.png'; 
+            };
+        });
+    </script>
+</body>
+</html>
