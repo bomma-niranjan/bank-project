@@ -1,0 +1,1 @@
+I created bank project for our basic needs.The main motive is without visiting bank for apppointments,we can book it from online on which date we have to visit bank on what reason we can select the reason and by entering our mail we can get the confirmation mail immediately.
